@@ -5,7 +5,15 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    public InputAction moveAction;
+    public int Id = -1;
+    public Joystick MyJoystick;
+    public Color MyColor
+    {
+        set
+        {
+            GetComponent<SpriteRenderer>().color = value;
+        }
+    }
     public float Speed = 2;
     public Vector2Int MoveAmount;
 
@@ -18,7 +26,7 @@ public class Player : MonoBehaviour
 
     public void Update()
     {
-        Vector2 axis = moveAction.ReadValue<Vector2>();
+        Vector2 axis = MyJoystick.stick.ReadValue();
         MoveAmount = new Vector2Int(Mathf.RoundToInt(axis.x), Mathf.RoundToInt(axis.y));
         if (MoveAmount.x != 0)
         {
@@ -92,17 +100,5 @@ public class Player : MonoBehaviour
             tile.MyType = TerrainTile.Type.PlowedAndWatered;
         else if (mechanic == GameController.Mechanic.Plant && tile.MyType == TerrainTile.Type.PlowedAndWatered)
             tile.MyType = TerrainTile.Type.Planted;
-    }
-
-    public void OnEnable()
-    {
-        Debug.Log("enabled");
-        moveAction.Enable();
-    }
-
-    public void OnDisable()
-    {
-        Debug.Log("disabled");
-        moveAction.Disable();
     }
 }

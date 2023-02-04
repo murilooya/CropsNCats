@@ -28,4 +28,21 @@ public class TerrainSpawner : MonoBehaviour
             }
         }
     }
+
+    public Vector2Int GetInitialCoordsForPlayerId(int id)
+    {
+        switch (id)
+        {
+            case 0:
+                return Vector2Int.zero;
+            case 1:
+                return new Vector2Int(Size.x - 1, Size.y - 1);
+            case 2:
+                return new Vector2Int(0, Size.y - 1);
+            case 3:
+                return new Vector2Int(Size.x - 1, 0);
+            default:
+                return -Vector2Int.one;
+        }       
+    }
 }
