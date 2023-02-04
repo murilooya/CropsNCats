@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour
     public GameObject sound;
 
     public AudioClip rockSound, harvestSound, hoeSound, plantSound, wateringSound;
+    public float pitchChange;
 
     void Start()
     {
@@ -38,5 +39,6 @@ public class SoundManager : MonoBehaviour
         }
         s.GetComponent<AudioSource>().Play();
         s.GetComponent<AutoDestroy>().enabled = true;
+        s.GetComponent<AudioSource>().pitch += Random.Range(-pitchChange, pitchChange);
     }
 }
