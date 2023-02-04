@@ -592,6 +592,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4770456785226394641, guid: a9507a8dd32faef4b9e6d7b9dab40f02, type: 3}
+      propertyPath: bloomTime
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4770456785226394641, guid: a9507a8dd32faef4b9e6d7b9dab40f02, type: 3}
+      propertyPath: minBloomTime
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4770456785226394641, guid: a9507a8dd32faef4b9e6d7b9dab40f02, type: 3}
+      propertyPath: bloomTimeReduction
+      value: 0.0025
+      objectReference: {fileID: 0}
     - target: {fileID: 4770456785226394642, guid: a9507a8dd32faef4b9e6d7b9dab40f02, type: 3}
       propertyPath: m_RootOrder
       value: 1

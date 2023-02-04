@@ -12,6 +12,7 @@ public class TerrainSpawner : MonoBehaviour
     public TerrainTile[,] Terrains;
 
     public Action<TerrainTile> flowerBlossom;
+    [SerializeField] private float bloomTime, minBloomTime, bloomTimeReduction;
 
     private void Awake()
     {
@@ -51,6 +52,7 @@ public class TerrainSpawner : MonoBehaviour
     }
     public IEnumerator BlossomFlowers()
     {
+        float waitTime = bloomTime;
         for (int i = 0; i < Size.x; i++)
         {
             for (int j = 0; j < Size.y; j++)
@@ -61,7 +63,10 @@ public class TerrainSpawner : MonoBehaviour
                 }
                 Terrains[i, j].Blossom();
                 flowerBlossom?.Invoke(Terrains[i, j]);
-                yield return new WaitForSeconds(0.05f);
+                if (waitTime > minBloomTime) {
+                    waitTime -= bloomTimeReduction;
+                }
+                yield return new WaitForSeconds(waitTime);
             }
         }
     }
