@@ -5,10 +5,10 @@ using UnityEngine;
 public class TerrainTile : MonoBehaviour
 {
     [System.Serializable]
-    public class TerrainColor
+    public class TerrainSprite
     {
         public Type Type;
-        public Sprite Sprite;
+        public Sprite[] Sprites;
     }
     public enum Type
     {
@@ -29,14 +29,25 @@ public class TerrainTile : MonoBehaviour
         }
         set
         {
-            _renderer.sprite = _dicTerrainColors[value];
+            Sprite spr = null;
+            if (_dicTerrainSprites.ContainsKey(value) && _dicTerrainSprites[value] != null && _dicTerrainSprites[value].Length > 0)
+            {
+                if (value != Type.PlowedAndWatered)
+                {
+                    randomIndex = UnityEngine.Random.Range(0, _dicTerrainSprites[value].Length);
+                }
+                spr = _dicTerrainSprites[value][randomIndex];
+            }
+            _renderer.sprite = spr;
             _type = value;
         }
     }
+    private int randomIndex = 0;
+
     public bool IsEdge = false;
-    public TerrainColor[] TerrainColors;
+    public TerrainSprite[] TerrainSprites;
     public Sprite[] Flowers;
-    private Dictionary<Type, Sprite> _dicTerrainColors = new Dictionary<Type, Sprite>();
+    private Dictionary<Type, Sprite[]> _dicTerrainSprites = new Dictionary<Type, Sprite[]>();
     private SpriteRenderer _renderer;
     public Vector2Int Coords;
     public int PlayerId;
@@ -44,9 +55,9 @@ public class TerrainTile : MonoBehaviour
     private void Start()
     {
         _renderer = GetComponent<SpriteRenderer>();
-        foreach (TerrainColor terrainColor in TerrainColors)
+        foreach (TerrainSprite terrainColor in TerrainSprites)
         {
-            _dicTerrainColors.Add(terrainColor.Type, terrainColor.Sprite);
+            _dicTerrainSprites.Add(terrainColor.Type, terrainColor.Sprites);
         }
         int length = System.Enum.GetValues(typeof(Type)).Length;
         int r = 0;
