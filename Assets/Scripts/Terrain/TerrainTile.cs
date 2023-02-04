@@ -32,12 +32,12 @@ public class TerrainTile : MonoBehaviour
             _type = value;
         }
     }
-
+    public bool IsEdge = false;
     public TerrainColor[] TerrainColors;
     private Dictionary<Type, Sprite> _dicTerrainColors = new Dictionary<Type, Sprite>();
     private SpriteRenderer _renderer;
 
-    private void Awake()
+    private void Start()
     {
         _renderer = GetComponent<SpriteRenderer>();
         foreach (TerrainColor terrainColor in TerrainColors)
@@ -45,6 +45,18 @@ public class TerrainTile : MonoBehaviour
             _dicTerrainColors.Add(terrainColor.Type, terrainColor.Sprite);
         }
         int length = System.Enum.GetValues(typeof(Type)).Length;
-        MyType = (Type)UnityEngine.Random.Range(1, length);
+        int r = 0;
+        while (r == 0 || r == 2 || r == 3)
+        {
+            if (IsEdge)
+            {
+                r = (int)Type.Dirt;
+            }
+            else
+            {
+                r = UnityEngine.Random.Range(1, length);
+            }
+        }
+        MyType = (Type)r;
     }
 }
