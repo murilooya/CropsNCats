@@ -8,7 +8,7 @@ public class TerrainTile : MonoBehaviour
     public class TerrainColor
     {
         public Type Type;
-        public Color Color;
+        public Sprite Sprite;
     }
     public enum Type
     {
@@ -28,13 +28,13 @@ public class TerrainTile : MonoBehaviour
         }
         set
         {
-            _renderer.color = _dicTerrainColors[value];
+            _renderer.sprite = _dicTerrainColors[value];
             _type = value;
         }
     }
 
     public TerrainColor[] TerrainColors;
-    private Dictionary<Type, Color> _dicTerrainColors = new Dictionary<Type, Color>();
+    private Dictionary<Type, Sprite> _dicTerrainColors = new Dictionary<Type, Sprite>();
     private SpriteRenderer _renderer;
 
     private void Awake()
@@ -42,7 +42,7 @@ public class TerrainTile : MonoBehaviour
         _renderer = GetComponent<SpriteRenderer>();
         foreach (TerrainColor terrainColor in TerrainColors)
         {
-            _dicTerrainColors.Add(terrainColor.Type, terrainColor.Color);
+            _dicTerrainColors.Add(terrainColor.Type, terrainColor.Sprite);
         }
         int length = System.Enum.GetValues(typeof(Type)).Length;
         MyType = (Type)UnityEngine.Random.Range(1, length);

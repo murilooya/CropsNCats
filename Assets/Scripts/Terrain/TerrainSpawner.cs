@@ -16,6 +16,7 @@ public class TerrainSpawner : MonoBehaviour
             for (int j = 0; j < _size.y; j++)
             {
                 _terrainsRef[i, j] = Instantiate(_sprite, new Vector3(i, j, 0), Quaternion.identity).gameObject;
+                _terrainsRef[i, j].transform.parent = this.transform;
             }
         }
     }

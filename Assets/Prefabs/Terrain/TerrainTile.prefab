@@ -47,13 +47,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TerrainColors:
   - Type: 1
-    Color: {r: 0.90588236, g: 0.5058824, b: 0.3882353, a: 1}
+    Sprite: {fileID: -1876603267, guid: 3e9c8fdd5dbf265468c13acaac9820e1, type: 3}
   - Type: 2
-    Color: {r: 0.6792453, g: 0.27024177, b: 0.14994659, a: 1}
+    Sprite: {fileID: -1467798145, guid: 3e9c8fdd5dbf265468c13acaac9820e1, type: 3}
   - Type: 3
-    Color: {r: 0.4339623, g: 0.0139195165, b: 0.0139195165, a: 1}
+    Sprite: {fileID: 1990761034, guid: 3e9c8fdd5dbf265468c13acaac9820e1, type: 3}
   - Type: 4
-    Color: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
+    Sprite: {fileID: 1229890561, guid: 3e9c8fdd5dbf265468c13acaac9820e1, type: 3}
 --- !u!212 &8189839323136425004
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -92,8 +92,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1574173421
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
