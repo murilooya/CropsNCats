@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TerrainSpawner : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class TerrainSpawner : MonoBehaviour
     [SerializeField] private TerrainTile TilePrefab;
     public Vector2Int Size = new Vector2Int(20, 10);
     public TerrainTile[,] Terrains;
+
+    public Action<TerrainTile> flowerBlossom;
 
     private void Awake()
     {
@@ -57,6 +60,7 @@ public class TerrainSpawner : MonoBehaviour
                     continue;
                 }
                 Terrains[i, j].Blossom();
+                flowerBlossom?.Invoke(Terrains[i, j]);
                 yield return new WaitForSeconds(0.05f);
             }
         }
