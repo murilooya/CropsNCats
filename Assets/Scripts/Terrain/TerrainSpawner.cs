@@ -4,24 +4,27 @@ using UnityEngine;
 
 public class TerrainSpawner : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer _sprite;
-    [SerializeField] private Vector2Int _size = new Vector2Int(18, 10);
-    private GameObject[,] _terrainsRef;
+    public static TerrainSpawner Instance;
 
-    private void Start()
+    [SerializeField] private TerrainTile TilePrefab;
+    public Vector2Int Size = new Vector2Int(20, 10);
+    public TerrainTile[,] Terrains;
+
+    private void Awake()
     {
-        _terrainsRef = new GameObject[_size.x, _size.y];
-        for (int i = 0; i < _size.x; i++)
+        Instance = this;
+        Terrains = new TerrainTile[Size.x, Size.y];
+        for (int i = 0; i < Size.x; i++)
         {
-            for (int j = 0; j < _size.y; j++)
+            for (int j = 0; j < Size.y; j++)
             {
-                _terrainsRef[i, j] = Instantiate(_sprite, new Vector3(i, j, 0), Quaternion.identity).gameObject;
-                _terrainsRef[i, j].transform.parent = this.transform;
-                bool isEdge = (i == 0 && (j == 0 || j == _size.y - 1)) || 
-                    (j == 0 && (i==0 || i == _size.x -1)) ||
-                    (i == _size.x - 1 && (j == 0 || j == _size.y - 1)) ||
-                    (j == _size.y -1 && (i == 0 || i == _size.x - 1));
-                _terrainsRef[i, j].GetComponent<TerrainTile>().IsEdge = isEdge;
+                Terrains[i, j] = TerrainTile.Instantiate(TilePrefab, new Vector3(i, j, 0), Quaternion.identity);
+                Terrains[i, j].transform.parent = this.transform;
+                bool isEdge = (i == 0 && (j == 0 || j == Size.y - 1)) || 
+                    (j == 0 && (i==0 || i == Size.x -1)) ||
+                    (i == Size.x - 1 && (j == 0 || j == Size.y - 1)) ||
+                    (j == Size.y -1 && (i == 0 || i == Size.x - 1));
+                Terrains[i, j].GetComponent<TerrainTile>().IsEdge = isEdge;
             }
         }
     }

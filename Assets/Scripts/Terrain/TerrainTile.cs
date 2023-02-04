@@ -16,7 +16,8 @@ public class TerrainTile : MonoBehaviour
         Dirt = 1,
         Plowed = 2,
         PlowedAndWatered = 3,
-        Wall = 4
+        Wall = 4,
+        Planted = 5
     }
 
     private Type _type;
@@ -46,7 +47,7 @@ public class TerrainTile : MonoBehaviour
         }
         int length = System.Enum.GetValues(typeof(Type)).Length;
         int r = 0;
-        while (r == 0 || r == 2 || r == 3)
+        while (r == 0 || r == 2 || r == 3 || r == 5)
         {
             if (IsEdge)
             {
