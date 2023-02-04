@@ -55,11 +55,11 @@ public class GameController : MonoBehaviour
         switch (type)
         {
             case TerrainTile.Type.Dirt:
-                return 10;
+                return 50;
             case TerrainTile.Type.Plowed:
-                return 15;
-            case TerrainTile.Type.PlowedAndWatered:
                 return 20;
+            case TerrainTile.Type.PlowedAndWatered:
+                return 30;
             case TerrainTile.Type.Planted:
                 return 100;
             default:
