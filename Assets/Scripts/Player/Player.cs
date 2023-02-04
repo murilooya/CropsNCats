@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     public AnimationCurve Curve;
     public float HorizontalMoveModifier = 0.5f;
     public float VerticalMoveModifier = 0.2f;
+    public TerrainTile NextTile = null;
 
     public void Update()
     {
@@ -53,13 +54,21 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        TerrainTile nextTile = TerrainSpawner.Instance.Terrains[nextCoords.x, nextCoords.y];
-        if (nextTile.MyType == TerrainTile.Type.Wall && GameController.Instance.CurrentMechanic != GameController.Mechanic.BreakRock)
+        NextTile = TerrainSpawner.Instance.Terrains[nextCoords.x, nextCoords.y];
+        foreach (Player p in PlayerSpawner.Instance.Players)
+        {
+            if (NextTile == p.NextTile && p != this || p.CurrentCoordinate == NextTile.Coords)
+            {
+                NextTile = null;
+                return;
+            }
+        }
+        if (NextTile.MyType == TerrainTile.Type.Wall && GameController.Instance.CurrentMechanic != GameController.Mechanic.BreakRock)
         {
             return;
         }
 
-        StartCoroutine(Move(nextTile, dir));
+        StartCoroutine(Move(NextTile, dir));
     }
 
     private IEnumerator Move(TerrainTile tile, Vector2Int dir)
@@ -88,6 +97,7 @@ public class Player : MonoBehaviour
         CurrentCoordinate = new Vector2Int(Mathf.RoundToInt(endpos.x), Mathf.RoundToInt(endpos.y));
         IsMoving = false;
         CheckTerrainMod(tile, mechanic);
+        NextTile = null;
     }
 
     public void CheckTerrainMod(TerrainTile tile, GameController.Mechanic mechanic)

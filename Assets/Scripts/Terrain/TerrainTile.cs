@@ -37,6 +37,7 @@ public class TerrainTile : MonoBehaviour
     public TerrainColor[] TerrainColors;
     private Dictionary<Type, Sprite> _dicTerrainColors = new Dictionary<Type, Sprite>();
     private SpriteRenderer _renderer;
+    public Vector2Int Coords;
 
     private void Start()
     {

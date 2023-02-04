@@ -5,11 +5,17 @@ using UnityEngine.InputSystem;
 
 public class PlayerSpawner : MonoBehaviour
 {
+    public static PlayerSpawner Instance;
     public Player PlayerPrefab;
 
     public List<Player> Players = new List<Player>();
 
     public Color[] Colors;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private IEnumerator Start()
     {

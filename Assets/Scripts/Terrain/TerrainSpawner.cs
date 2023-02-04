@@ -19,6 +19,7 @@ public class TerrainSpawner : MonoBehaviour
             for (int j = 0; j < Size.y; j++)
             {
                 Terrains[i, j] = TerrainTile.Instantiate(TilePrefab, new Vector3(i, j, 0), Quaternion.identity);
+                Terrains[i, j].Coords = new Vector2Int(i, j);
                 Terrains[i, j].transform.parent = this.transform;
                 bool isEdge = (i == 0 && (j == 0 || j == Size.y - 1)) || 
                     (j == 0 && (i==0 || i == Size.x -1)) ||
