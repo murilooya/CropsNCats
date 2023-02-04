@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     public Vector2Int CurrentCoordinate = Vector2Int.zero;
     public bool IsMoving = false;
     public float MoveTime = 0.5f;
+    public AnimationCurve Curve;
+    public float HorizontalMoveModifier = 0.5f;
+    public float VerticalMoveModifier = 0.2f;
 
     public void Update()
     {
@@ -48,42 +51,46 @@ public class Player : MonoBehaviour
             return;
         }
 
-        StartCoroutine(Move(nextTile));
-        //verificar se o tile que eu quero ir é possível de ir.
-        //pra isso, duas coisas:
-        //1 - saber se EXISTE um tile, porque eu posso estar no limite da tela
-        //2 - ver se o lugar que eu quero ir é pedra, se for, só posso se tiver na fase de quebrar pedra
+        StartCoroutine(Move(nextTile, dir));
     }
 
-    private IEnumerator Move(TerrainTile tile)
+    private IEnumerator Move(TerrainTile tile, Vector2Int dir)
     {
+        GameController.Mechanic mechanic = GameController.Instance.CurrentMechanic;
         IsMoving = true;
         Vector3 startpos = transform.position;
         Vector3 endpos = tile.transform.position;
         float count = 0;
+        Vector3 baseScale = transform.localScale;
         while (count <= MoveTime)
         {
             float i = count / MoveTime;
-            transform.position = Vector3.Lerp(startpos, endpos, i);
+            Vector3 jump = dir.x != 0 ? new Vector3(0, Curve.Evaluate(i) * HorizontalMoveModifier, 0) : Vector3.zero;
+
+            transform.position = Vector3.Lerp(startpos, endpos, i) + jump;
+            if (dir.y != 0)
+            {
+                transform.localScale = baseScale + new Vector3(1, 1, 0) * Curve.Evaluate(i) * VerticalMoveModifier;
+            }
             count += Time.deltaTime;
             yield return null;
         }
         transform.position = endpos;
+        transform.localScale = baseScale;
         CurrentCoordinate = new Vector2Int(Mathf.RoundToInt(endpos.x), Mathf.RoundToInt(endpos.y));
         IsMoving = false;
-        CheckTerrainMod(tile);
+        CheckTerrainMod(tile, mechanic);
     }
 
-    public void CheckTerrainMod(TerrainTile tile)
+    public void CheckTerrainMod(TerrainTile tile, GameController.Mechanic mechanic)
     {
-        GameController game = GameController.Instance;
-        if (game.CurrentMechanic == GameController.Mechanic.BreakRock && tile.MyType == TerrainTile.Type.Wall)
+        if (mechanic == GameController.Mechanic.BreakRock && tile.MyType == TerrainTile.Type.Wall)
             tile.MyType = TerrainTile.Type.Dirt;
-        else if (game.CurrentMechanic == GameController.Mechanic.Plow && tile.MyType == TerrainTile.Type.Dirt)
+        else if (mechanic == GameController.Mechanic.Plow && tile.MyType == TerrainTile.Type.Dirt)
             tile.MyType = TerrainTile.Type.Plowed;
-        else if (game.CurrentMechanic == GameController.Mechanic.Water && tile.MyType == TerrainTile.Type.Plowed)
+        else if (mechanic == GameController.Mechanic.Water && tile.MyType == TerrainTile.Type.Plowed)
             tile.MyType = TerrainTile.Type.PlowedAndWatered;
-        else if (game.CurrentMechanic == GameController.Mechanic.Plant && tile.MyType == TerrainTile.Type.PlowedAndWatered)
+        else if (mechanic == GameController.Mechanic.Plant && tile.MyType == TerrainTile.Type.PlowedAndWatered)
             tile.MyType = TerrainTile.Type.Planted;
     }
 
