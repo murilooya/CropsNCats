@@ -9,6 +9,9 @@ public class SoundManager : MonoBehaviour
     public AudioClip rockSound, harvestSound, hoeSound, plantSound, wateringSound;
     public float pitchChange;
 
+    public float harvestPitch, harvestPitchIncrease, maxHarvestPitch;
+    private float currentHarvestPitch;
+
     void Start()
     {
         TerrainSpawner.Instance.flowerBlossom += BlossomSound;
@@ -49,7 +52,11 @@ public class SoundManager : MonoBehaviour
         s.GetComponent<AudioSource>().clip = harvestSound;
         s.GetComponent<AudioSource>().Play();
         s.GetComponent<AutoDestroy>().enabled = true;
-        s.GetComponent<AudioSource>().pitch += Random.Range(-pitchChange, pitchChange);
+        s.GetComponent<AudioSource>().pitch = harvestPitch;
+        if (harvestPitch < maxHarvestPitch) 
+        {
+            harvestPitch += harvestPitchIncrease;
+        }
     }
 
     private void OnDisable() {
