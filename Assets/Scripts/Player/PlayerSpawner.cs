@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 public class PlayerSpawner : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerSpawner : MonoBehaviour
     public List<Player> Players = new List<Player>();
 
     public Color[] Colors;
+    public Action<Player> createdPlayer;
 
     private void Awake()
     {
@@ -30,6 +32,7 @@ public class PlayerSpawner : MonoBehaviour
             p.transform.position = new Vector3(p.CurrentCoordinate.x, p.CurrentCoordinate.y, 0);
             p.MyJoystick = j;
             p.MyColor = Colors[p.Id];
+            createdPlayer?.Invoke(p);
         }
     }
 }

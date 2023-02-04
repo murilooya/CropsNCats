@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class Player : MonoBehaviour
     public float HorizontalMoveModifier = 0.5f;
     public float VerticalMoveModifier = 0.2f;
     public TerrainTile NextTile = null;
+
+    public Action<Player, TerrainTile, TerrainTile.Type> modifiedTerrain;
 
     public void Update()
     {
@@ -103,12 +106,25 @@ public class Player : MonoBehaviour
     public void CheckTerrainMod(TerrainTile tile, GameController.Mechanic mechanic)
     {
         if (mechanic == GameController.Mechanic.BreakRock && tile.MyType == TerrainTile.Type.Wall)
+        {
             tile.MyType = TerrainTile.Type.Dirt;
+            modifiedTerrain?.Invoke(this, tile, tile.MyType);
+        }
         else if (mechanic == GameController.Mechanic.Plow && tile.MyType == TerrainTile.Type.Dirt)
+        {
             tile.MyType = TerrainTile.Type.Plowed;
+            modifiedTerrain?.Invoke(this, tile, tile.MyType);
+        }
         else if (mechanic == GameController.Mechanic.Water && tile.MyType == TerrainTile.Type.Plowed)
+        {
             tile.MyType = TerrainTile.Type.PlowedAndWatered;
+            modifiedTerrain?.Invoke(this, tile, tile.MyType);
+        }
         else if (mechanic == GameController.Mechanic.Plant && tile.MyType == TerrainTile.Type.PlowedAndWatered)
+        {
             tile.MyType = TerrainTile.Type.Planted;
+            tile.PlayerId = this.Id;
+            modifiedTerrain?.Invoke(this, tile, tile.MyType);
+        }
     }
 }

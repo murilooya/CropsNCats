@@ -46,4 +46,19 @@ public class TerrainSpawner : MonoBehaviour
                 return -Vector2Int.one;
         }       
     }
+    public IEnumerator BlossomFlowers()
+    {
+        for (int i = 0; i < Size.x; i++)
+        {
+            for (int j = 0; j < Size.y; j++)
+            {
+                if (Terrains[i,j].MyType != TerrainTile.Type.Planted)
+                {
+                    continue;
+                }
+                Terrains[i, j].Blossom();
+                yield return new WaitForSeconds(0.05f);
+            }
+        }
+    }
 }

@@ -35,9 +35,11 @@ public class TerrainTile : MonoBehaviour
     }
     public bool IsEdge = false;
     public TerrainColor[] TerrainColors;
+    public Sprite[] Flowers;
     private Dictionary<Type, Sprite> _dicTerrainColors = new Dictionary<Type, Sprite>();
     private SpriteRenderer _renderer;
     public Vector2Int Coords;
+    public int PlayerId;
 
     private void Start()
     {
@@ -60,5 +62,12 @@ public class TerrainTile : MonoBehaviour
             }
         }
         MyType = (Type)r;
+    }
+
+    public void Blossom()
+    {
+        SpriteRenderer spr = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        spr.sprite = Flowers[PlayerId];
+        spr.flipX = UnityEngine.Random.value > 0.5f;
     }
 }
