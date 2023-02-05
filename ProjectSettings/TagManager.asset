@@ -47,6 +47,9 @@ TagManager:
   - name: Terrain
     uniqueID: 1574173421
     locked: 0
+  - name: Crop
+    uniqueID: 149104693
+    locked: 0
   - name: Player
     uniqueID: 3230200775
     locked: 0
