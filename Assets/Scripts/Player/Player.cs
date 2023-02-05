@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     public float HorizontalMoveModifier = 0.5f;
     public float VerticalMoveModifier = 0.2f;
     public TerrainTile NextTile = null;
+    public float WaitTimeBetweenMovements = 0.05f;
 
     public Action<Player, TerrainTile, TerrainTile.Type> modifiedTerrain;
 
@@ -98,8 +99,10 @@ public class Player : MonoBehaviour
         transform.position = endpos;
         transform.localScale = baseScale;
         CurrentCoordinate = new Vector2Int(Mathf.RoundToInt(endpos.x), Mathf.RoundToInt(endpos.y));
-        IsMoving = false;
+
         CheckTerrainMod(tile, mechanic);
+        yield return new WaitForSeconds(WaitTimeBetweenMovements);
+        IsMoving = false;
         NextTile = null;
     }
 
