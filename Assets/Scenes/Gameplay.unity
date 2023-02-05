@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b42375e28190f4ca6302594ad4c53d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particle: {fileID: 1715513035698238422, guid: 32a1f85b59aaff641b1d89f0f75f00cd, type: 3}
+  particle: {fileID: 6853704802555868618, guid: 865b6f7379dd64444bcf9dd970927d18, type: 3}
   rock: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
 --- !u!4 &1368071135
 Transform:
