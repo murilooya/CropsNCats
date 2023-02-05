@@ -81,5 +81,6 @@ public class TerrainTile : MonoBehaviour
         SpriteRenderer spr = transform.GetChild(0).GetComponent<SpriteRenderer>();
         spr.sprite = Flowers[PlayerId];
         spr.flipX = UnityEngine.Random.value > 0.5f;
+        transform.GetComponentInChildren<Animator>().SetTrigger("Bounce");
     }
 }
