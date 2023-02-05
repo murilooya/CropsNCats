@@ -53,9 +53,10 @@ public class TerrainSpawner : MonoBehaviour
     public IEnumerator BlossomFlowers()
     {
         float waitTime = bloomTime;
-        for (int i = 0; i < Size.x; i++)
+        for (int j = Size.y - 1; j >= 0; j--)
+
         {
-            for (int j = 0; j < Size.y; j++)
+            for (int i = 0; i < Size.x; i++)
             {
                 if (Terrains[i,j].MyType != TerrainTile.Type.Planted)
                 {

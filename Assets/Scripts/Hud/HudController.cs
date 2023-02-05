@@ -9,27 +9,27 @@ public class HudController : MonoBehaviour
 
     public int currentMechanicValue;
 
-    public TextMeshProUGUI phrase, inText;
     public TextMeshProUGUI countdownText;
     public TextMeshProUGUI[] scoreText;
 
-
     private void Update()
     {
-        if (Mathf.RoundToInt(GameController.Instance.count) <= 3 && Mathf.RoundToInt(GameController.Instance.count) > -1)
+        if (Mathf.CeilToInt(GameController.Instance.count) <= 3 && Mathf.CeilToInt(GameController.Instance.count) > 0)
         {
-            phrase.text = startPhrases[currentMechanicValue];
-            inText.text = "in";
-            countdownText.text = Mathf.RoundToInt(GameController.Instance.count).ToString();
+            int number = Mathf.CeilToInt(GameController.Instance.count);
+            string text = startPhrases[currentMechanicValue] + " " + number.ToString() + "...";
+            int invisibleCharacters = Mathf.CeilToInt(Mathf.Abs(number - GameController.Instance.count) / 0.25f) - 1;
+            invisibleCharacters = Mathf.Clamp(invisibleCharacters, 0, 3);
+            invisibleCharacters = 3 - invisibleCharacters;
+            countdownText.text = text;
+            countdownText.maxVisibleCharacters = countdownText.text.Length - invisibleCharacters;
         }
         else
         {
-            if (phrase.text != "" && currentMechanicValue < 4)
+            if (countdownText.text != "" && currentMechanicValue < 4)
             {
                 currentMechanicValue++;
             }
-            phrase.text = "";
-            inText.text = "";
             countdownText.text = "";
         }
     }

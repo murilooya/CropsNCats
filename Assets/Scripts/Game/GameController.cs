@@ -90,9 +90,9 @@ public class GameController : MonoBehaviour
         while (i < mechanicTime.Length - 1)
         {
             //Debug.Log(count);
-            if (count > 0)
+            if (count >= 0)
             {
-                yield return new WaitForEndOfFrame();
+                yield return null;
                 count -= Time.deltaTime;
             }
             else
