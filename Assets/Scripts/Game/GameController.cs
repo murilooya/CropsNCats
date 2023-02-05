@@ -35,6 +35,14 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         PlayerSpawner.Instance.createdPlayer += OnCreatedPlayer;
+        TerrainSpawner.Instance.flowerBlossom += OnFlowerBlossom;
+    }
+
+    private void OnFlowerBlossom(TerrainTile tile) 
+    {
+        int plantScore = 100;
+        DicScore[tile.PlayerId] += plantScore;
+        playerIncreasedScore?.Invoke(tile.PlayerId, plantScore);
     }
 
     private void OnCreatedPlayer(Player p)
@@ -47,7 +55,10 @@ public class GameController : MonoBehaviour
     private void OnPlayerModifiedTerrain(Player p, TerrainTile t, TerrainTile.Type type)
     {
         DicScore[p.Id] += GetPointsByTileType(type);
-        playerIncreasedScore?.Invoke(p.Id, GetPointsByTileType(type));
+        if (t.MyType != TerrainTile.Type.Planted) 
+        {
+            playerIncreasedScore?.Invoke(p.Id, GetPointsByTileType(type));
+        }
     }
 
     private int GetPointsByTileType(TerrainTile.Type type)
@@ -60,8 +71,6 @@ public class GameController : MonoBehaviour
                 return 20;
             case TerrainTile.Type.PlowedAndWatered:
                 return 30;
-            case TerrainTile.Type.Planted:
-                return 100;
             default:
                 return 0;
         }
