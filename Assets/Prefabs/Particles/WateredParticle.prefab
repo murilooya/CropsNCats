@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 4167021168767906155}
   - component: {fileID: 1665004866796721712}
   - component: {fileID: 4604157432232602066}
+  - component: {fileID: -6657117963442303812}
   m_Layer: 0
-  m_Name: BreakRock
+  m_Name: WateredParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,9 +186,9 @@ ParticleSystem:
         m_RotationOrder: 0
     startColor:
       serializedVersion: 2
-      minMaxState: 0
-      minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
+      minMaxState: 2
+      minColor: {r: 0.14978641, g: 0.38304788, b: 0.9622642, a: 1}
+      maxColor: {r: 0.31933072, g: 0.7899246, b: 0.9811321, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -590,7 +591,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 7
+    angle: 5
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -978,8 +979,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.40083522
-          value: 0.83933115
+          time: 0.37156218
+          value: 0.48797923
           inSlope: 0.80893755
           outSlope: 0.80893755
           tangentMode: 0
@@ -2602,7 +2603,7 @@ ParticleSystem:
     inWorldSpace: 0
     multiplyDragByParticleSize: 1
     multiplyDragByParticleVelocity: 1
-    dampen: 0.2
+    dampen: 0.15
     drag:
       serializedVersion: 2
       minMaxState: 0
@@ -4801,3 +4802,15 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-6657117963442303812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6853704802555868618}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0382306570eefe40bb3eee505ecb968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
