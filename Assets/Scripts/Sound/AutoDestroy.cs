@@ -6,9 +6,18 @@ public class AutoDestroy : MonoBehaviour
 {
     private float time;
 
+    public enum type
+    {
+        none = 0,
+        audioSource,
+        particleSystem
+    }
+
+    public type currentType;
+
     private void Start()
     {
-        if (GetComponent<AudioClip>() != null)
+        if (currentType == type.audioSource)
         {
             time = GetComponent<AudioSource>().clip.length;
         }

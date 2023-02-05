@@ -32,7 +32,6 @@ public class CameraShake : MonoBehaviour
         {
             transform.position = startPos + (Vector3)Random.insideUnitCircle * intensity;
             intensity = (1 - timePassed / lenght) * startIntensity;
-            Debug.Log((1 - timePassed / lenght) * startIntensity);
             timePassed += Time.deltaTime;
             yield return null;
         }
