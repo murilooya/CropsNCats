@@ -10,6 +10,7 @@ public class PlayerSpawner : MonoBehaviour
     public Player PlayerPrefab;
 
     public List<Player> Players = new List<Player>();
+    public RuntimeAnimatorController[] Animators;
 
     public Color[] Colors;
     public Action<Player> createdPlayer;
@@ -32,6 +33,7 @@ public class PlayerSpawner : MonoBehaviour
             p.transform.position = new Vector3(p.CurrentCoordinate.x, p.CurrentCoordinate.y, 0);
             p.MyJoystick = j;
             p.MyColor = Colors[p.Id];
+            p.transform.GetChild(0).GetComponent<Animator>().runtimeAnimatorController = Animators[p.Id];
             createdPlayer?.Invoke(p);
         }
     }

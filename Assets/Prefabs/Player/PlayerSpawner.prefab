@@ -46,6 +46,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 166650384434394520, guid: 2b3663fb73fbd34489eeb1842ac3a43a, type: 3}
   Players: []
+  Animators:
+  - {fileID: 9100000, guid: cf0202d8cb9265048800f540dd4ffc3a, type: 2}
+  - {fileID: 9100000, guid: b335a53583fb67f49a7cd2ea3a6ca829, type: 2}
+  - {fileID: 9100000, guid: 11ed45bb2b7f6cd489acea583c2c82ee, type: 2}
+  - {fileID: 9100000, guid: 545ec980b9f3aff4c83580bb130e7cac, type: 2}
   Colors:
   - {r: 0.9568628, g: 0.10588236, b: 0.011764707, a: 1}
   - {r: 0.15686275, g: 0.8, b: 0.98039216, a: 1}

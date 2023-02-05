@@ -78,8 +78,8 @@ MonoBehaviour:
     - {fileID: 21300000, guid: e6eb98a3ed2134e4d9cbd4c4df5a085b, type: 3}
   Flowers:
   - {fileID: 21300000, guid: c45119ed74fdbd440b6182032a0b3f89, type: 3}
-  - {fileID: 21300000, guid: becdd0ad617f55c4da29463cf27fd96b, type: 3}
   - {fileID: 21300000, guid: a6e78e08b6eb795459b0a100cb98950c, type: 3}
+  - {fileID: 21300000, guid: becdd0ad617f55c4da29463cf27fd96b, type: 3}
   - {fileID: 21300000, guid: 625b357fdaf2ca74285ae4ff68be1472, type: 3}
   Coords: {x: 0, y: 0}
   PlayerId: 0
@@ -207,7 +207,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 149104693
-  m_SortingLayer: 4
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

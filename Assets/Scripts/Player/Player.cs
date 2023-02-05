@@ -87,6 +87,12 @@ public class Player : MonoBehaviour
         Vector3 endpos = tile.transform.position;
         float count = 0;
         Vector3 baseScale = transform.localScale;
+        bool willModifyTerrain = WillModifyNextTerrain(tile, mechanic);
+
+        if (willModifyTerrain)
+        {
+            transform.GetChild(0).GetComponent<Animator>().SetTrigger(GetAnimationName(mechanic));
+        }
         while (count <= MoveTime)
         {
             float i = count / MoveTime;
@@ -105,9 +111,27 @@ public class Player : MonoBehaviour
         CurrentCoordinate = new Vector2Int(Mathf.RoundToInt(endpos.x), Mathf.RoundToInt(endpos.y));
 
         CheckTerrainMod(tile, mechanic);
-        yield return new WaitForSeconds(WaitTimeBetweenMovements);
+        if (willModifyTerrain)
+            yield return new WaitForSeconds(WaitTimeBetweenMovements);
         IsMoving = false;
         NextTile = null;
+    }
+
+    private string GetAnimationName(GameController.Mechanic mechanic)
+    {
+        switch (mechanic)
+        {
+            case GameController.Mechanic.BreakRock:
+                return "pickaxe";
+            case GameController.Mechanic.Plow:
+                return "hoe";
+            case GameController.Mechanic.Water:
+                return "sprinkler";
+            case GameController.Mechanic.Plant:
+                return "seed";
+            default:
+                return "";
+        }
     }
 
     public void CheckTerrainMod(TerrainTile tile, GameController.Mechanic mechanic)
@@ -133,5 +157,13 @@ public class Player : MonoBehaviour
             tile.PlayerId = this.Id;
             modifiedTerrain?.Invoke(this, tile, tile.MyType);
         }
+    }
+
+    public bool WillModifyNextTerrain(TerrainTile tile, GameController.Mechanic mechanic)
+    {
+        return mechanic == GameController.Mechanic.BreakRock && tile.MyType == TerrainTile.Type.Wall ||
+            mechanic == GameController.Mechanic.Plow && tile.MyType == TerrainTile.Type.Dirt ||
+            mechanic == GameController.Mechanic.Water && tile.MyType == TerrainTile.Type.Plowed ||
+            mechanic == GameController.Mechanic.Plant && tile.MyType == TerrainTile.Type.PlowedAndWatered;
     }
 }
