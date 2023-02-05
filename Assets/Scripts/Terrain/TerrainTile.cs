@@ -78,9 +78,12 @@ public class TerrainTile : MonoBehaviour
     public void Blossom()
     {
         MyType = Type.Plowed;
-        SpriteRenderer spr = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        SpriteRenderer spr = transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
         spr.sprite = Flowers[PlayerId];
         spr.flipX = UnityEngine.Random.value > 0.5f;
-        transform.GetComponentInChildren<Animator>().SetTrigger("Bounce");
+        transform.GetChild(0).GetComponentInChildren<Animator>().SetTrigger("Bounce");
+
+        transform.GetChild(0).localScale *= Random.Range(0.8f, 1.2f);
+        transform.GetChild(0).Rotate(0, 0, Random.Range(-15, 15));
     }
 }
