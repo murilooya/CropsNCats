@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using System;
 
 public class HudController : MonoBehaviour
 {
@@ -11,6 +13,8 @@ public class HudController : MonoBehaviour
 
     public TextMeshProUGUI countdownText;
     public TextMeshProUGUI[] scoreText;
+
+    public UILap lap;
 
     private void Update()
     {
@@ -23,7 +27,13 @@ public class HudController : MonoBehaviour
             invisibleCharacters = 3 - invisibleCharacters;
             countdownText.text = text;
             countdownText.maxVisibleCharacters = countdownText.text.Length - invisibleCharacters;
+            if (currentMechanicValue == 0)
+            {
+                Debug.Log(number);
+                lap.show_lap(number);
+            }
         }
+
         else
         {
             if (countdownText.text != "" && currentMechanicValue < 4)
@@ -31,6 +41,17 @@ public class HudController : MonoBehaviour
                 currentMechanicValue++;
             }
             countdownText.text = "";
+            if (lap.GetComponent<Image>().sprite != null)
+                StartCoroutine(GoRoutine());
         }
+    }
+
+    private IEnumerator GoRoutine()
+    {
+        //todo: botar o sprite de go
+        lap.show_lap(0);
+        yield return new WaitForSeconds(1);
+        lap.GetComponent<Image>().sprite = null;
+        lap.gameObject.SetActive(false);
     }
 }

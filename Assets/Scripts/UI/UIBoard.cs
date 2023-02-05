@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class UIBoard : MonoBehaviour {
     public Dictionary<int, int> dictScore = new Dictionary<int, int>();
     public List<UILBBlock> listBlocks = new List<UILBBlock>();
 
+    public List<Sprite> sprites;
     public PlayerSpawner playerSpawner;
 
     private void Start()
@@ -39,7 +41,7 @@ public class UIBoard : MonoBehaviour {
                 break;
             }
             listBlocks[i].set_score(top.Values.ElementAt(i));
-            listBlocks[i].set_sprite(playerSpawner.get_player_by_id(top.Keys.ElementAt(i)).MyColor);
+            listBlocks[i].set_sprite(sprites[top.Keys.ElementAt(i)]);
             listBlocks[i].gameObject.SetActive(true);
         }
     }

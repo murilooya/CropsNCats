@@ -16,8 +16,8 @@ public class UILBBlock : MonoBehaviour
         text_score.SetText(player_score.ToString());
     }
 
-    public void set_sprite(Color _sprite)
+    public void set_sprite(Sprite _sprite)
     {
-        image.color = _sprite;
+        image.sprite = _sprite;
     }
 }
