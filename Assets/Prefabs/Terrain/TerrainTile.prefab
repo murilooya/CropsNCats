@@ -57,10 +57,18 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 7b44ce30e10ee4c4890cd88d289cc3a3, type: 3}
   - Type: 2
     Sprites:
-    - {fileID: -1467798145, guid: 3e9c8fdd5dbf265468c13acaac9820e1, type: 3}
+    - {fileID: 21300000, guid: b911d9dbddc337840b3294b0db9dd598, type: 3}
+    - {fileID: 21300000, guid: d7013917dc6839a44a6679f0172c28e9, type: 3}
+    - {fileID: 21300000, guid: 0f0ebdd73f03f8e42a7a7a18c5248a9f, type: 3}
+    - {fileID: 21300000, guid: 7ef8365349a2f054c9294bfc34a1bc05, type: 3}
+    - {fileID: 21300000, guid: be5235bbfdee4db46b4d7cf36ce9adf8, type: 3}
   - Type: 3
     Sprites:
-    - {fileID: 1990761034, guid: 3e9c8fdd5dbf265468c13acaac9820e1, type: 3}
+    - {fileID: 21300000, guid: fc412faf8cf90004b9a5f5e89f4df7af, type: 3}
+    - {fileID: 21300000, guid: f608299dbdfb1884c9d0bc1d45c1548a, type: 3}
+    - {fileID: 21300000, guid: 83d4ab8cd4513694bbcb59c3eecba5e0, type: 3}
+    - {fileID: 21300000, guid: af5618feca5b8c24aaf00142dc0d28a8, type: 3}
+    - {fileID: 21300000, guid: 7e2516bffe0cc9349bbb8d33c0d9a3d9, type: 3}
   - Type: 5
     Sprites:
     - {fileID: -1279646228, guid: 3e9c8fdd5dbf265468c13acaac9820e1, type: 3}
