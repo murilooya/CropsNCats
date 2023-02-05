@@ -411,8 +411,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b42375e28190f4ca6302594ad4c53d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particle: {fileID: 6853704802555868618, guid: 865b6f7379dd64444bcf9dd970927d18, type: 3}
-  rock: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  rockParticle: {fileID: 6853704802555868618, guid: 865b6f7379dd64444bcf9dd970927d18, type: 3}
+  plowedParticle: {fileID: 6853704802555868618, guid: ccf523e05effe364f9d75fef57bf7506, type: 3}
+  wateredParticle: {fileID: 6853704802555868618, guid: 80f612a0e4ae4c3469f4fe09dec3b347, type: 3}
+  plaintParticle: {fileID: 6853704802555868618, guid: 69727c8b284a3eb4886c40decb9393e4, type: 3}
   scorePopup: {fileID: 5858005578661910284, guid: c81d06da4c8e0f7d097abe91012752ff, type: 3}
   canvas: {fileID: 381618682}
 --- !u!4 &1368071135

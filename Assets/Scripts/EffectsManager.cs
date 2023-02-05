@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
 public class EffectsManager : MonoBehaviour
 {
-    public GameObject particle;
-    
-    public Sprite rock;
+    public GameObject rockParticle, plowedParticle, wateredParticle, plaintParticle;
 
     public GameObject scorePopup;
     public GameObject canvas;
@@ -32,17 +31,20 @@ public class EffectsManager : MonoBehaviour
 
     private void TerrainParticles(Player p, TerrainTile tile, TerrainTile.Type type)
     {
-        var s = Instantiate(particle, p.transform.position, Quaternion.identity);
+        GameObject s = null;
         switch (type)
         {
             case TerrainTile.Type.Dirt:
-                s.GetComponent<ParticleSystem>().textureSheetAnimation.AddSprite(rock);
+                s = Instantiate(rockParticle, p.transform.position, Quaternion.identity);
                 break;
             case TerrainTile.Type.Plowed:
+                s = Instantiate(plowedParticle, p.transform.position, Quaternion.identity);
                 break;
             case TerrainTile.Type.PlowedAndWatered:
+                s = Instantiate(wateredParticle, p.transform.position, Quaternion.identity);
                 break;
             case TerrainTile.Type.Planted:
+                s = Instantiate(plaintParticle, p.transform.position, Quaternion.identity);
                 break;
         }
         s.GetComponent<ParticleSystem>().Play();
