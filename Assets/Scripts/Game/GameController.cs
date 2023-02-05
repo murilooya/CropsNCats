@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
     public System.Action<int> playerIncreasedScore;
     public System.Action<int> playerWon;
 
+    public UILeaderBoard leaderBoard;
+
     public enum Mechanic
     {
         None = 0,
@@ -34,6 +36,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        leaderBoard.gameObject.SetActive(false);
         PlayerSpawner.Instance.createdPlayer += OnCreatedPlayer;
     }
 
@@ -70,8 +73,9 @@ public class GameController : MonoBehaviour
     private IEnumerator GameBegin()
     {
         //yield return new WaitForSeconds(3);
-        //Debug.Log("JOGO COMEÇOU");
+        //Debug.Log("JOGO COMEï¿½OU");
         //CurrentMechanic = Mechanic.BreakRock;
+        leaderBoard.gameObject.SetActive(false);
         int i = 0;
         count = mechanicTime[0];
         while (i < mechanicTime.Length - 1)
@@ -98,6 +102,7 @@ public class GameController : MonoBehaviour
                 winnerId = i;
             }
         }
+        leaderBoard.added_to_lb();
         Debug.Log("winnerId: " + winnerId);
         CallWinnerAction(winnerId);
         StartCoroutine(RestartGame());
