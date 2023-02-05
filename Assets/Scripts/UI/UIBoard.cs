@@ -9,6 +9,11 @@ public class UIBoard : MonoBehaviour {
 
     public PlayerSpawner playerSpawner;
 
+    private void Start()
+    {
+        
+    }
+
     public void add_score(int _id, int _score)
     {
         Debug.Log(_id + " " + _score);
@@ -24,6 +29,8 @@ public class UIBoard : MonoBehaviour {
 
     public void set_scoreboard()
     {
+        if (playerSpawner == null)
+            playerSpawner = PlayerSpawner.Instance;
         var top = sort_dictionary();
         for (int i = 0; i < listBlocks.Count; i++)
         {
