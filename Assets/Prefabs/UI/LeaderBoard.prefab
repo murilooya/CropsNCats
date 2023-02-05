@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.8142164, a: 1}
+  m_Color: {r: 0.31452474, g: 0.50033903, b: 0.7169812, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -162,6 +162,7 @@ MonoBehaviour:
   - {fileID: 1983126258750698055}
   - {fileID: 5697212112669161099}
   - {fileID: 3431144125743775127}
+  playerSpawner: {fileID: 0}
 --- !u!1001 &822576083879129032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -172,6 +173,14 @@ PrefabInstance:
     - target: {fileID: 834985342646608513, guid: acc2865e0661c7f478472807596b631c, type: 3}
       propertyPath: m_Name
       value: LBBlock (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581447585524182509, guid: acc2865e0661c7f478472807596b631c, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c45ab93737f6ac041b2237946fa4a67e, type: 2}
+    - target: {fileID: 5581447585524182509, guid: acc2865e0661c7f478472807596b631c, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6387300552535905922, guid: acc2865e0661c7f478472807596b631c, type: 3}
       propertyPath: m_Pivot.x
@@ -403,6 +412,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LBBlock (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5581447585524182509, guid: acc2865e0661c7f478472807596b631c, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c45ab93737f6ac041b2237946fa4a67e, type: 2}
+    - target: {fileID: 5581447585524182509, guid: acc2865e0661c7f478472807596b631c, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6387300552535905922, guid: acc2865e0661c7f478472807596b631c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -516,6 +533,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LBBlock (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5581447585524182509, guid: acc2865e0661c7f478472807596b631c, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c45ab93737f6ac041b2237946fa4a67e, type: 2}
+    - target: {fileID: 5581447585524182509, guid: acc2865e0661c7f478472807596b631c, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6387300552535905922, guid: acc2865e0661c7f478472807596b631c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -599,6 +624,14 @@ PrefabInstance:
     - target: {fileID: 6387300552535905922, guid: acc2865e0661c7f478472807596b631c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7451211892148314305, guid: acc2865e0661c7f478472807596b631c, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c45ab93737f6ac041b2237946fa4a67e, type: 2}
+    - target: {fileID: 7451211892148314305, guid: acc2865e0661c7f478472807596b631c, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acc2865e0661c7f478472807596b631c, type: 3}
