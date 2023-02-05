@@ -47,22 +47,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsEdge: 0
-  TerrainColors:
-  - Type: 1
-    Sprite: {fileID: -1876603267, guid: 3e9c8fdd5dbf265468c13acaac9820e1, type: 3}
-  - Type: 2
-    Sprite: {fileID: -1467798145, guid: 3e9c8fdd5dbf265468c13acaac9820e1, type: 3}
-  - Type: 3
-    Sprite: {fileID: 1990761034, guid: 3e9c8fdd5dbf265468c13acaac9820e1, type: 3}
+  TerrainSprites:
   - Type: 4
-    Sprite: {fileID: 1229890561, guid: 3e9c8fdd5dbf265468c13acaac9820e1, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 9cd0e04eb78348948a853f01bb419b77, type: 3}
+    - {fileID: 21300000, guid: c132af1fecf12fd4eb633abfbd21d750, type: 3}
+    - {fileID: 21300000, guid: ca9d829c49e926a4e81f2d4ad03a9f02, type: 3}
+    - {fileID: 21300000, guid: 34102a67ee5282f49b3aab8229d3ee9e, type: 3}
+    - {fileID: 21300000, guid: 7b44ce30e10ee4c4890cd88d289cc3a3, type: 3}
+  - Type: 2
+    Sprites:
+    - {fileID: 21300000, guid: b911d9dbddc337840b3294b0db9dd598, type: 3}
+    - {fileID: 21300000, guid: d7013917dc6839a44a6679f0172c28e9, type: 3}
+    - {fileID: 21300000, guid: 0f0ebdd73f03f8e42a7a7a18c5248a9f, type: 3}
+    - {fileID: 21300000, guid: 7ef8365349a2f054c9294bfc34a1bc05, type: 3}
+    - {fileID: 21300000, guid: be5235bbfdee4db46b4d7cf36ce9adf8, type: 3}
+  - Type: 3
+    Sprites:
+    - {fileID: 21300000, guid: fc412faf8cf90004b9a5f5e89f4df7af, type: 3}
+    - {fileID: 21300000, guid: f608299dbdfb1884c9d0bc1d45c1548a, type: 3}
+    - {fileID: 21300000, guid: 83d4ab8cd4513694bbcb59c3eecba5e0, type: 3}
+    - {fileID: 21300000, guid: af5618feca5b8c24aaf00142dc0d28a8, type: 3}
+    - {fileID: 21300000, guid: 7e2516bffe0cc9349bbb8d33c0d9a3d9, type: 3}
   - Type: 5
-    Sprite: {fileID: -1279646228, guid: 3e9c8fdd5dbf265468c13acaac9820e1, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: e270404299486f5419bf45ed28e8c85c, type: 3}
+    - {fileID: 21300000, guid: 1853fb3bd0b54d44d8863a0ef546a2f0, type: 3}
+    - {fileID: 21300000, guid: 2c23d7f41b89c83489e075d3193ad74b, type: 3}
+    - {fileID: 21300000, guid: 458fb86ffa688c640ab295064d116c6e, type: 3}
+    - {fileID: 21300000, guid: e6eb98a3ed2134e4d9cbd4c4df5a085b, type: 3}
   Flowers:
-  - {fileID: -1486260241, guid: 3e9c8fdd5dbf265468c13acaac9820e1, type: 3}
-  - {fileID: -552737447, guid: 3e9c8fdd5dbf265468c13acaac9820e1, type: 3}
-  - {fileID: -1156278906, guid: 3e9c8fdd5dbf265468c13acaac9820e1, type: 3}
-  - {fileID: 579278426, guid: 3e9c8fdd5dbf265468c13acaac9820e1, type: 3}
+  - {fileID: 21300000, guid: c45119ed74fdbd440b6182032a0b3f89, type: 3}
+  - {fileID: 21300000, guid: becdd0ad617f55c4da29463cf27fd96b, type: 3}
+  - {fileID: 21300000, guid: a6e78e08b6eb795459b0a100cb98950c, type: 3}
+  - {fileID: 21300000, guid: 625b357fdaf2ca74285ae4ff68be1472, type: 3}
   Coords: {x: 0, y: 0}
   PlayerId: 0
 --- !u!212 &8189839323136425004
@@ -142,7 +160,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7924021037825189994}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

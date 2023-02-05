@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
     public float[] mechanicTime;
     public float count;
 
-    public System.Action<int> playerIncreasedScore;
+    public System.Action<int, int> playerIncreasedScore;
     public System.Action<int> playerWon;
 
     public UILeaderBoard leaderBoard;
@@ -38,6 +38,14 @@ public class GameController : MonoBehaviour
     {
         leaderBoard.gameObject.SetActive(false);
         PlayerSpawner.Instance.createdPlayer += OnCreatedPlayer;
+        TerrainSpawner.Instance.flowerBlossom += OnFlowerBlossom;
+    }
+
+    private void OnFlowerBlossom(TerrainTile tile) 
+    {
+        int plantScore = 100;
+        DicScore[tile.PlayerId] += plantScore;
+        playerIncreasedScore?.Invoke(tile.PlayerId, plantScore);
     }
 
     private void OnCreatedPlayer(Player p)
@@ -50,7 +58,10 @@ public class GameController : MonoBehaviour
     private void OnPlayerModifiedTerrain(Player p, TerrainTile t, TerrainTile.Type type)
     {
         DicScore[p.Id] += GetPointsByTileType(type);
-        playerIncreasedScore?.Invoke(p.Id);
+        if (t.MyType != TerrainTile.Type.Planted) 
+        {
+            playerIncreasedScore?.Invoke(p.Id, GetPointsByTileType(type));
+        }
     }
 
     private int GetPointsByTileType(TerrainTile.Type type)
@@ -58,13 +69,11 @@ public class GameController : MonoBehaviour
         switch (type)
         {
             case TerrainTile.Type.Dirt:
-                return 10;
+                return 50;
             case TerrainTile.Type.Plowed:
-                return 15;
-            case TerrainTile.Type.PlowedAndWatered:
                 return 20;
-            case TerrainTile.Type.Planted:
-                return 100;
+            case TerrainTile.Type.PlowedAndWatered:
+                return 30;
             default:
                 return 0;
         }
