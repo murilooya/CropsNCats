@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
+    private Vector3 startPos;
+
     private void Start() 
     {
+        startPos = transform.position;
         PlayerSpawner.Instance.createdPlayer += ConnectToModifiedTerrain;
     }
 
@@ -24,7 +27,6 @@ public class CameraShake : MonoBehaviour
 
     private IEnumerator Shake(float intensity, float lenght) 
     {
-        Vector3 startPos = transform.position;
         float startIntensity = intensity;
         float timePassed = 0;
 
