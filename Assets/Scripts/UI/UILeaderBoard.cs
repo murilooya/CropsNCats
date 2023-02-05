@@ -10,10 +10,9 @@ public class UILeaderBoard : MonoBehaviour
 
     public void added_to_lb()
     {
-        Debug.Log("CHAMOU AE");
         foreach (KeyValuePair<int, int> player in gameController.DicScore)
         {
-            board.add_score(player.Key.ToString(), player.Value);
+            board.add_score(player.Key, player.Value);
         }
         board.set_scoreboard();
         gameObject.SetActive(true);

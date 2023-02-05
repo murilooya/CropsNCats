@@ -35,4 +35,16 @@ public class PlayerSpawner : MonoBehaviour
             createdPlayer?.Invoke(p);
         }
     }
+
+    public Player get_player_by_id(int id)
+    {
+        foreach (Player player in Players)
+        {
+            if (player.Id == id)
+            {
+                return player;
+            }
+        }
+        return null;
+    }
 }

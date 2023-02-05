@@ -14,6 +14,10 @@ public class Player : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().color = value;
         }
+        get
+        {
+            return GetComponent<SpriteRenderer>().color;
+        }
     }
     public float Speed = 2;
     public Vector2Int MoveAmount;
