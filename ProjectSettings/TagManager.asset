@@ -53,3 +53,9 @@ TagManager:
   - name: Plant
     uniqueID: 2421583507
     locked: 0
+  - name: Particles
+    uniqueID: 4210231265
+    locked: 0
+  - name: UI
+    uniqueID: 2965807391
+    locked: 0
