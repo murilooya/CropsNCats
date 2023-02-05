@@ -8,7 +8,14 @@ public class AutoDestroy : MonoBehaviour
 
     private void Start()
     {
-        time = GetComponent<AudioSource>().clip.length;    
+        if (GetComponent<AudioClip>() != null)
+        {
+            time = GetComponent<AudioSource>().clip.length;
+        }
+        else
+        {
+            time = GetComponent<ParticleSystem>().startLifetime;
+        }
     }
 
     private void Update()
