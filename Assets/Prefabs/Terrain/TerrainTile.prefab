@@ -71,7 +71,11 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 7e2516bffe0cc9349bbb8d33c0d9a3d9, type: 3}
   - Type: 5
     Sprites:
-    - {fileID: -1279646228, guid: 3e9c8fdd5dbf265468c13acaac9820e1, type: 3}
+    - {fileID: 21300000, guid: e270404299486f5419bf45ed28e8c85c, type: 3}
+    - {fileID: 21300000, guid: 1853fb3bd0b54d44d8863a0ef546a2f0, type: 3}
+    - {fileID: 21300000, guid: 2c23d7f41b89c83489e075d3193ad74b, type: 3}
+    - {fileID: 21300000, guid: 458fb86ffa688c640ab295064d116c6e, type: 3}
+    - {fileID: 21300000, guid: e6eb98a3ed2134e4d9cbd4c4df5a085b, type: 3}
   Flowers:
   - {fileID: -1486260241, guid: 3e9c8fdd5dbf265468c13acaac9820e1, type: 3}
   - {fileID: -552737447, guid: 3e9c8fdd5dbf265468c13acaac9820e1, type: 3}

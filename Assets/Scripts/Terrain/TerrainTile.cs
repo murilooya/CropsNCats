@@ -32,7 +32,7 @@ public class TerrainTile : MonoBehaviour
             Sprite spr = null;
             if (_dicTerrainSprites.ContainsKey(value) && _dicTerrainSprites[value] != null && _dicTerrainSprites[value].Length > 0)
             {
-                if (value != Type.PlowedAndWatered)
+                if (value != Type.PlowedAndWatered && value != Type.Planted)
                 {
                     randomIndex = UnityEngine.Random.Range(0, _dicTerrainSprites[value].Length);
                 }
