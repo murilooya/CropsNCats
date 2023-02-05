@@ -128,6 +128,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4800385502273857714, guid: f35abb370373fee4da5b105ecb442694, type: 3}
   m_PrefabInstance: {fileID: 2086328377}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &381618682 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4800385502273857718, guid: f35abb370373fee4da5b105ecb442694, type: 3}
+  m_PrefabInstance: {fileID: 2086328377}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,6 +413,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particle: {fileID: 6853704802555868618, guid: 865b6f7379dd64444bcf9dd970927d18, type: 3}
   rock: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  scorePopup: {fileID: 5858005578661910284, guid: c81d06da4c8e0f7d097abe91012752ff, type: 3}
+  canvas: {fileID: 381618682}
 --- !u!4 &1368071135
 Transform:
   m_ObjectHideFlags: 0

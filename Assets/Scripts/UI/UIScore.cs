@@ -24,7 +24,7 @@ public class UIScore : MonoBehaviour
         GameController.Instance.playerIncreasedScore += OnPlayerIncreasedScore;
     }
 
-    private void OnPlayerIncreasedScore(int id)
+    private void OnPlayerIncreasedScore(int id, int scoreIncrease)
     {
         if (this.Id != id)
         {

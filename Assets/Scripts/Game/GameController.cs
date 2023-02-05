@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
     public float[] mechanicTime;
     public float count;
 
-    public System.Action<int> playerIncreasedScore;
+    public System.Action<int, int> playerIncreasedScore;
     public System.Action<int> playerWon;
 
     public enum Mechanic
@@ -47,7 +47,7 @@ public class GameController : MonoBehaviour
     private void OnPlayerModifiedTerrain(Player p, TerrainTile t, TerrainTile.Type type)
     {
         DicScore[p.Id] += GetPointsByTileType(type);
-        playerIncreasedScore?.Invoke(p.Id);
+        playerIncreasedScore?.Invoke(p.Id, GetPointsByTileType(type));
     }
 
     private int GetPointsByTileType(TerrainTile.Type type)
@@ -70,7 +70,7 @@ public class GameController : MonoBehaviour
     private IEnumerator GameBegin()
     {
         //yield return new WaitForSeconds(3);
-        //Debug.Log("JOGO COMEÇOU");
+        //Debug.Log("JOGO COMEï¿½OU");
         //CurrentMechanic = Mechanic.BreakRock;
         int i = 0;
         count = mechanicTime[0];

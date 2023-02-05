@@ -1,17 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EffectsManager : MonoBehaviour
 {
     public GameObject particle;
-
+    
     public Sprite rock;
 
+    public GameObject scorePopup;
+    public GameObject canvas;
 
     void Start()
     {
         PlayerSpawner.Instance.createdPlayer += ConnectToModifiedTerrain;
+        GameController.Instance.playerIncreasedScore += ShowScore;
+    }
+
+    private void ShowScore(int playerId, int scoreIncrease) 
+    {
+        GameObject score = Instantiate(scorePopup, PlayerSpawner.Instance.Players[playerId].transform.position, Quaternion.identity);
+        score.transform.SetParent(canvas.transform);
+        score.GetComponentInChildren<TextMeshProUGUI>().text = "+" + scoreIncrease;
     }
 
     private void ConnectToModifiedTerrain(Player p)
