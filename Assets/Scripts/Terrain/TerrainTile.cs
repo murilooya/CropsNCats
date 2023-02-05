@@ -77,6 +77,7 @@ public class TerrainTile : MonoBehaviour
 
     public void Blossom()
     {
+        _renderer.sprite = null;
         SpriteRenderer spr = transform.GetChild(0).GetComponent<SpriteRenderer>();
         spr.sprite = Flowers[PlayerId];
         spr.flipX = UnityEngine.Random.value > 0.5f;
